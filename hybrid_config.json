@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "rrf_constant": 60,
+  "location_weight": 0.05,
+  "e5_model": {
+    "name": "intfloat/multilingual-e5-small",
+    "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+  },
+  "selection_subset": "85457abd2a9a21fdbe13826ec580ce97028c8e047520b2b95a6ece5acf0bfcd4",
+  "top_k_per_source": 500,
+  "sources": [
+    {
+      "kind": "word",
+      "document": "title_params",
+      "query": "query_only"
+    },
+    {
+      "kind": "char",
+      "document": "title",
+      "query": "query_only"
+    },
+    {
+      "kind": "dense",
+      "document": "title",
+      "query": "query_only"
+    },
+    {
+      "kind": "char",
+      "query": "query_only",
+      "document": "title",
+      "scope": "same_location",
+      "name": "local_char",
+      "top_k": 100
+    },
+    {
+      "kind": "word",
+      "query": "query_only",
+      "document": "title_params",
+      "scope": "same_location",
+      "name": "local_word",
+      "top_k": 100
+    }
+  ],
+  "weights": [
+    1.0,
+    0.75,
+    1.75,
+    0.25,
+    0.25
+  ],
+  "quick_metrics": {
+    "R@10": 0.5463086934589788,
+    "R@20": 0.6108771252990258,
+    "R@50": 0.69079888810211,
+    "candidate_recall": 0.832553059026346
+  },
+  "confirmation_metrics": {
+    "R@10": 0.5401221692922346,
+    "R@20": 0.6026291507021523,
+    "R@50": 0.6855949195365998,
+    "candidate_recall": 0.8402087576231133
+  }
+}
